@@ -18,4 +18,4 @@ class OriginalMessageListView(ListView):
     model = original_message
     #queryset = original_message.objects.filter(~Q(quantity=0))
     template_name = 'original_message/original_message_list.html'
-    paginate_by = 2
+    #paginate_by = 2
