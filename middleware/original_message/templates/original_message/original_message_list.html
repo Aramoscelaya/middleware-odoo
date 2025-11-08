@@ -21,41 +21,22 @@
             <div class="row">
                 
                 <div class="col-12">
-                    <h2 class="mb-5">New Arrivals</h2>
+                    <h2 class="mb-5"> </h2>
                 </div>
 
-                {% for products in object_list %}
+                {% for message in object_list %}
                     <div class="col-lg-4 col-12 mb-3">
                         <div class="product-thumb">
-                            <a href="#">
-                                {% if products.image == '' %}
-                                    <img src="{% static 'core/images/pim-chu-z6NZ76_UTDI-unsplash.jpeg' %}" class="img-fluid product-image" alt="">
-                                {% else %}
-                                    <img src="" class="img-fluid product-image" alt="">
-                                {% endif %}
-                            </a>
-
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <a href="#" class="product-title-link"></a>
+                                        <a href="#" class="product-title-link">{{message.entity}}</a>
                                     </h5>
 
-                                    <p class="product-p"></p>
+                                    <p class="product-p">{{message.updated_at}}</p>
                                 </div>
 
-                                <small class="product-price text-muted ms-auto">$</small>
-                            </div>
-
-                            <div class="product-cart-thumb row">
-                                <div class="col-lg-3 col-4">
-                                    
-                                    <input type="number" class="form-control" id="inputQty_1"/>
-                                </div>
-
-                                <div class="col-lg-8 col-4 mt-4 mt-lg-0">
-                                    <a class="btn custom-btn cart-btn" onclick="addCart()">Add to Cart</a>
-                                </div>
+                                <small class="product-price text-muted ms-auto">{{message.status}}</small>
                             </div>
                         </div>
                     </div>

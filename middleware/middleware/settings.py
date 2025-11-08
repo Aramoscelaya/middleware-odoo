@@ -92,9 +92,9 @@ WSGI_APPLICATION = 'middleware.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "middleware_odoo",
-        "USER": "netdata",
-        "PASSWORD": "S0port31",
+        "NAME": config("DATABASE_MIDDLEWARE"),
+        "USER": config("USER_MIDDLEWARE"),
+        "PASSWORD": config("PASSWORD_MIDDLEWARE"),
         "HOST": "127.0.0.1",
         "PORT": "3306",
     }
@@ -215,19 +215,12 @@ RETRY_LIMIT = config("RETRY_LIMIT", cast=int, default=3)
 
 SQLITE_PATH = "middleware_staging.sqlite"
 
-CREDENTIALS_MYSQL = {
-    "host-middleware": config("HOST_MIDDLEWARE"),
-    "user-middleware": config("USER_MIDDLEWARE"),
-    "password-middleware": config("PASSWORD_MIDDLEWARE"),
-    "database-middleware": config("DATABASE_MIDDLEWARE")
-}
-
-URL = config("CT_URL", default="")
-FTP_HOST = config("CT_HOST", default="")
-FTP_USER = config("CT_USER", default="")
-FTP_PASSWORD = config("CT_PASS", default="")
-FTP_DIRECTORY = config("CT_DIR", default="")
-XML_FILE = config("CT_XML", default="")
+URL_CT = config("CT_URL", default="")
+FTP_HOST_CT = config("CT_HOST", default="")
+FTP_USER_CT = config("CT_USER", default="")
+FTP_PASSWORD_CT = config("CT_PASS", default="")
+FTP_DIRECTORY_CT = config("CT_DIR", default="")
+XML_FILE_CT = config("CT_XML", default="")
 
 
 
