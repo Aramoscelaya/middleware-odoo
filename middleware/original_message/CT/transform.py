@@ -5,7 +5,12 @@ from PIL import Image
 import requests
 import validators
 import base64
-from middleware.config import build_headers
+import os
+import django
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "middleware.settings")
+django.setup()
+from django.conf import settings
+from middleware.settings import build_headers
 
 HEADERS = build_headers("CT")
 
