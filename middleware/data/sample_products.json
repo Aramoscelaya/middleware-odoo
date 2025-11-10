@@ -1,0 +1,29 @@
+[
+  {
+    "sku": "SYS-ROUTER-100",
+    "name": "Router Syscom 100",
+    "description": "Router de 4 puertos",
+    "price": 1200.5,
+    "cost": 890.0,
+    "barcode": "7501234567890",
+    "stock": 25,
+    "category": "Routers",
+    "brand": "Syscom",
+    "image_url": "https://example.com/router.jpg",
+    "currency": "MXN",
+    "uom": "Pieza"
+  },
+  {
+    "sku": "SYS-SWITCH-24P",
+    "name": "Switch 24 Puertos",
+    "description": "Switch administrable 24 puertos",
+    "price": 3200,
+    "cost": 2500,
+    "stock": 10,
+    "category": "Switches",
+    "brand": "Syscom",
+    "image_url": "",
+    "currency": "MXN",
+    "uom": "Pieza"
+  }
+]
