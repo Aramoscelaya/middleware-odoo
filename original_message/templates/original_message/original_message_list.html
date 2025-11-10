@@ -1,0 +1,49 @@
+{% extends "core/base.html" %}
+{% block content %}
+{% load static %}
+
+    <header class="site-header section-padding d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-10 col-12">
+                    <h1>
+                        <span class="d-block text-primary">Original</span>
+                        <span class="d-block text-dark">Message</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="products section-padding">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-12">
+                    <h2 class="mb-5"> </h2>
+                </div>
+
+                {% for message in object_list %}
+                    <div class="col-lg-4 col-12 mb-3">
+                        <div class="product-thumb">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <a href="#" class="product-title-link">{{message.entity}}</a>
+                                    </h5>
+
+                                    <p class="product-p">{{message.updated_at}}</p>
+                                </div>
+
+                                <small class="product-price text-muted ms-auto">{{message.status}}</small>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
