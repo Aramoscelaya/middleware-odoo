@@ -48,7 +48,7 @@ def fetch_products(provider):
         try:
             arbol = ET.parse(xml_path)
             raiz = arbol.getroot()
-            return raiz
+            return raiz, xml_path.name
         except ET.ParseError as e:
             logger.error(e)
             return None
@@ -109,7 +109,7 @@ def fetch_products(provider):
             logger.info("Leídos %d productos (XML)", len(productos))
             logger.info("Archivo "+file_name.name+" creado")
             logger.info("------------------------ Fin -------------------------------")
-            return root
+            return root, file_name.name
         except Exception as e:
             logger.error(e)
             return f"Error en la conexión: {e}"

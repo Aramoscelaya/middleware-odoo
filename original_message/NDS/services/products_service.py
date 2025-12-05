@@ -74,19 +74,17 @@ def product_by_serialnumber(serialNumber):
     return datos
 
 def guardar_o_actualizar_producto(data: Dict[str, Any]) -> Dict[str, Any]:
+    producto, creado = original_message.objects.create(
+        file = data[0],
+        entity = data[1],
+        status = data[2],
+        request = data[3],
+    )
 
-    try:
-        producto, creado = original_message.objects.get_or_create(
-            file=data["file_name"],
-            entity=data["action"],
-            defaults={"status": data["status"], "request": data["rows"]}
-        )
-    except Exception as e:
-        return {"success": False, "error": str(e)}
+    if creado:
+        print(f"✅ Producto creado: {producto.codigo} - {producto.nombre}")
+    else:
+        print(f"🔄 Producto actualizado: {producto.codigo} - {producto.nombre}")
 
-    return {
-        "success": True,
-        "created": creado,
-        "producto_id": producto.id
-    }
+    return producto
 
