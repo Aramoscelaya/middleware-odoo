@@ -7,7 +7,6 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))  # middleware-odoo
 from middleware.provider_client import fetch_products
 from .transform import to_staging_row
 from middleware.logger import get_logger
-from services.products_service import guardar_o_actualizar_producto
 
 logger = get_logger("sync_pull", "logs/sync.log")
 
@@ -21,15 +20,8 @@ def run(provider):
     for product in raw.findall(".//Producto"):
         data = []
         rows = to_staging_row(product) if product is not None else None
-
-        if rows is not None:
-            data.append({
-                "file_name": file_name,
-                "action": "saveCT",
-                "status": "R",
-                "rows": rows
-            })
-            response = guardar_o_actualizar_producto(data)
+        data.append(file_name, 'saveCT', 'R', rows)
+        #upsert_products(rows)
         break
     
     print(rows)
